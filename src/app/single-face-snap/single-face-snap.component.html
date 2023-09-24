@@ -1,0 +1,23 @@
+<div class="face-snap-card" [ngClass]="{ snapped: buttonText === 'Oops, unSnap!' }">
+    <h2>{{ faceSnape.title }}</h2>
+    <h2>{{ faceSnape.title | uppercase }}</h2>
+    <a routerLink="/facesnaps">Back</a>
+    <!-- <h2>{{ faceSnape.title | uppercase }}</h2>
+    <h2>{{ faceSnape.title | lowercase }}</h2>
+    <h2>{{ faceSnape.title | titlecase }}</h2> -->
+    <p>Mis en ligne le<p>Mis en ligne le {{ faceSnape.createdDate | date : 'à HH:mm, le d MMMM yyyy' }}</p>
+    <img [src]="faceSnape.imageUrl" [alt]="faceSnape.title">
+    <p>{{ faceSnape.description }}</p>
+    <p *ngIf="faceSnape.location">Photo prise à {{ faceSnape.location }}</p>
+    <span>{{ 122422.467 | number }}</span>
+    <p>
+       <button (click)="onSnap()"> {{buttonText}} </button>
+        
+       <i class="fas fa-thumbs-up">
+        <span [ngStyle]="{ color: 'rgb(0, ' + faceSnape.snaps  + ', 0)' }"> {{ faceSnape.snaps }}</span>  
+        </i>
+      </p>
+      <!-- <p>{{ 0.336 | percent: '1.0-1' }}</p>
+      <p>{{ 344.36 | currency }}</p>
+      <p>{{ 344.36 | currency: 'EUR' }}</p> -->
+    </div>
